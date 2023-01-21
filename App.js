@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { StyleSheet } from 'react-native';
+import { Auth } from './components/context/Auth';
+import { AuthProvider } from './components/context/AuthContext';
+
+const MenuNav = createBottomTabNavigator()
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AuthProvider>
+      <Auth />
+    </AuthProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const sombra = StyleSheet.create({
+  shadow:{
+    shadowColor: '#7F5DF0',
+    textShadowOffset : {
+      width: 2,
+      height: 10
+    },
+    shadowOpacity: 0.75,
+    shadowRadius: 6.5,
+    elevation: 5
+  }
+})
